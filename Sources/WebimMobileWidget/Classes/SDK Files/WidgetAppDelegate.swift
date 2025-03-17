@@ -39,7 +39,14 @@ public class WidgetAppDelegate: WidgetAppDelegateProtocol {
     #if SWIFT_PACKAGE
         return Bundle.module
     #else
-        return Bundle(for: WidgetAppDelegate.self)
+        let bundle = Bundle(for: WidgetAppDelegate.self)
+        guard
+            let path = bundle.path(forResource: "WebimMobileWidgetResources", ofType: "bundle"),
+            let resourcesBundle = Bundle(path: path)
+        else {
+            return bundle
+        }
+        return resourcesBundle
     #endif
     }()
     

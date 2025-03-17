@@ -95,7 +95,7 @@ extension UIView {
     
     func loadViewFromNib(_ nibName: String) -> UIView {
         
-        let nib = UINib(nibName: nibName, bundle: Bundle.main)
+        let nib = UINib(nibName: nibName, bundle: WidgetAppDelegate.bundle)
         return nib.instantiate(withOwner: nil, options: nil)[0] as! UIView
     }
     
